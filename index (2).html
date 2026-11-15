@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tea Soul Street Cafe — Connecting with soulmate's</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        soulBg: '#0B0B0B',
+                        soulCard: '#161616',
+                        soulBorder: '#262626',
+                        soulGold: '#FFC107',
+                        soulAmber: '#F59E0B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #0B0B0B;
+            color: #F3F4F6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .neon-text {
+            text-shadow: 0 0 12px rgba(255, 193, 7, 0.55), 0 0 28px rgba(245, 158, 11, 0.3);
+        }
+        .neon-box {
+            box-shadow: 0 0 25px rgba(255, 193, 7, 0.15);
+        }
+        .neon-box-strong {
+            box-shadow: 0 0 35px rgba(255, 193, 7, 0.35), inset 0 0 20px rgba(255, 193, 7, 0.1);
+        }
+        /* Hide scrollbar for category pills */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom dark scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E2E2E;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFC107;
+        }
+    </style>
+</head>
+<body class="bg-soulBg text-gray-100 antialiased selection:bg-soulGold selection:text-black">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-soulCard border border-soulGold text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3">
+        <span class="w-7 h-7 rounded-full bg-soulGold/20 text-soulGold flex items-center justify-center text-sm">
+            <i id="toast-icon" class="fa-solid fa-check"></i>
+        </span>
+        <span id="toast-msg" class="text-sm font-medium">Updated successfully</span>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 inset-x-0 z-40 bg-soulBg/90 backdrop-blur-md border-b border-soulBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand SVG + Title -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full bg-black border border-soulGold/60 flex items-center justify-center p-1 neon-box group-hover:scale-105 transition-transform">
+                    <svg viewBox="0 0 120 120" class="w-full h-full">
+                        <circle cx="60" cy="60" r="56" fill="#0B0B0B" stroke="#FFC107" stroke-width="2.5"/>
+                        <!-- Heart Steam -->
+                        <path d="M60 44 C56 36, 47 32, 47 25 C47 20, 52 17, 56 20 C58 22, 60 25, 60 25 C60 25, 62 22, 64 20 C68 17, 73 20, 73 25 C73 32, 64 36, 60 44 Z" fill="none" stroke="#FFC107" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Tea Leaf -->
+                        <path d="M55 46 C46 44, 41 38, 43 32 C49 32, 54 37, 55 46 Z" fill="#FFC107"/>
+                        <!-- Cup -->
+                        <path d="M36 52 H76 C76 70, 67 80, 56 80 C45 80, 36 70, 36 52 Z" fill="#FFC107"/>
+                        <!-- Cup Handle -->
+                        <path d="M76 56 H82 C87 56, 89 60, 89 64 C89 68, 86 72, 81 72 H74" fill="none" stroke="#FFC107" stroke-width="4" stroke-linecap="round"/>
+                        <!-- Saucer -->
+                        <ellipse cx="56" cy="85" rx="26" ry="4" fill="#FFC107"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block font-display font-black italic text-base sm:text-lg tracking-wider text-soulGold neon-text leading-none">THE TEA SOUL</span>
+                    <span class="block text-[10px] font-bold tracking-[0.22em] text-gray-400 uppercase mt-1">Street Cafe</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-soulGold transition-colors">Home</a>
+                <a href="#menu" class="hover:text-soulGold transition-colors">Menu Card</a>
+                <a href="#about" class="hover:text-soulGold transition-colors">Our Story</a>
+                <a href="#contact" class="hover:text-soulGold transition-colors">Location</a>
+            </nav>
+
+            <!-- Actions: Settings (Admin Login) & Mobile Menu -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="openSettingsModal()" id="header-settings-btn" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-soulCard border border-soulBorder hover:border-soulGold text-gray-300 hover:text-soulGold transition-all text-xs sm:text-sm font-medium" title="Admin Settings">
+                    <i class="fa-solid fa-gear text-soulGold"></i>
+                    <span id="admin-badge-text" class="hidden sm:inline">Settings</span>
+                </button>
+                <button id="mobile-nav-toggle" class="md:hidden p-2.5 rounded-xl bg-soulCard border border-soulBorder text-soulGold">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-nav" class="hidden md:hidden bg-soulCard border-b border-soulBorder px-6 py-4 space-y-3 text-sm">
+            <a href="#home" class="block py-1.5 text-gray-200 hover:text-soulGold">Home</a>
+            <a href="#menu" class="block py-1.5 text-gray-200 hover:text-soulGold">Digital Menu Card</a>
+            <a href="#about" class="block py-1.5 text-gray-200 hover:text-soulGold">Our Story</a>
+            <a href="#contact" class="block py-1.5 text-gray-200 hover:text-soulGold">Location & Hours</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
+        <!-- Ambient Radial Glow -->
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-soulGold/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <!-- Custom Neon Circular Backlit Logo Emblem -->
+            <div class="w-56 h-56 sm:w-68 sm:h-68 mx-auto mb-8 rounded-full bg-[#090909] border-2 border-soulGold/80 p-3 neon-box-strong flex items-center justify-center relative">
+                <svg viewBox="0 0 320 320" class="w-full h-full drop-shadow-[0_0_12px_rgba(255,193,7,0.5)]">
+                    <defs>
+                        <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                    </defs>
+                    <circle cx="160" cy="160" r="152" fill="#080808" stroke="#FFC107" stroke-width="2" stroke-opacity="0.5"/>
+                    
+                    <!-- Top Text: THE TEA -->
+                    <text x="160" y="96" text-anchor="middle" fill="#FFC107" font-family="Montserrat, sans-serif" font-weight="900" font-style="italic" font-size="34" letter-spacing="4" filter="url(#goldGlow)">THE TEA</text>
+                    
+                    <!-- Middle Row: S [Cup+Heart] UL -->
+                    <text x="72" y="176" text-anchor="middle" fill="#FFC107" font-family="Montserrat, sans-serif" font-weight="900" font-style="italic" font-size="64" filter="url(#goldGlow)">S</text>
+                    
+                    <!-- Heart Steam -->
+                    <path d="M134 134 C126 121, 112 115, 112 104 C112 96, 120 91, 127 96 C131 99, 134 104, 134 104 C134 104, 137 99, 141 96 C148 91, 156 96, 156 104 C156 115, 142 121, 134 134 Z" fill="none" stroke="#FFC107" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#goldGlow)"/>
+                    <!-- Leaf -->
+                    <path d="M128 139 C114 136, 106 127, 109 118 C118 118, 126 126, 128 139 Z" fill="#FFC107"/>
+                    <!-- Cup -->
+                    <path d="M106 144 H154 C154 166, 143 178, 130 178 C117 178, 106 166, 106 144 Z" fill="#FFC107" filter="url(#goldGlow)"/>
+                    <!-- Handle -->
+                    <path d="M154 149 H161 C167 149, 170 154, 170 159 C170 165, 166 170, 160 170 H151" fill="none" stroke="#FFC107" stroke-width="4.5" stroke-linecap="round"/>
+                    <!-- Saucer -->
+                    <ellipse cx="130" cy="184" rx="30" ry="4.5" fill="#FFC107"/>
+
+                    <text x="228" y="176" text-anchor="middle" fill="#FFC107" font-family="Montserrat, sans-serif" font-weight="900" font-style="italic" font-size="64" filter="url(#goldGlow)">UL</text>
+
+                    <!-- Bottom Title: STREET CAFE -->
+                    <text x="160" y="220" text-anchor="middle" fill="#FFC107" font-family="Montserrat, sans-serif" font-weight="800" font-style="italic" font-size="22" letter-spacing="2.5">STREET CAFE</text>
+                    
+                    <!-- Tagline -->
+                    <text x="160" y="248" text-anchor="middle" fill="#FDE047" font-family="Inter, sans-serif" font-weight="600" font-size="13.5" letter-spacing="0.4">“Connecting with soulmate's”</text>
+                </svg>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-display font-black tracking-tight text-white uppercase mb-3">
+               connecting with  <span class="text-soulGold neon-text"> soulmate,s</span>
+            </h1>
+            <p class="max-w-xl mx-auto text-gray-400 text-sm sm:text-base mb-8 leading-relaxed">
+                From steaming aromatic teas and Malabar Avil Milk to loaded fries, juicy burgers, and sizzling momos — explore our complete digital menu.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#menu" class="px-7 py-3.5 rounded-xl bg-soulGold text-black font-bold text-sm hover:bg-amber-400 transition-all shadow-lg shadow-soulGold/20 flex items-center gap-2">
+                    <i class="fa-solid fa-utensils"></i> Browse Full Menu
+                </a>
+                <a href="#contact" class="px-7 py-3.5 rounded-xl bg-soulCard border border-soulBorder text-gray-200 font-semibold text-sm hover:border-soulGold hover:text-soulGold transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-soulGold"></i> Visit Cafe
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Menu Card Section -->
+    <section id="menu" class="py-16 sm:py-24 border-t border-soulBorder bg-[#0E0E0E]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header + Search -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-soulGold text-xs font-bold tracking-[0.2em] uppercase">Crafted Fresh Daily</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-black text-white mt-1">Digital Menu Card</h2>
+                </div>
+
+                <!-- Live Search Input -->
+                <div class="relative w-full md:w-80">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                    <input type="text" id="menu-search" placeholder="Search tea, momos, burger..." class="w-full pl-11 pr-4 py-3 rounded-xl bg-soulCard border border-soulBorder text-sm text-white placeholder-gray-500 focus:outline-none focus:border-soulGold transition-colors">
+                </div>
+            </div>
+
+            <!-- Horizontal Scrollable Category Filter Pills -->
+            <div id="category-pills" class="flex items-center gap-2.5 overflow-x-auto no-scrollbar pb-4 mb-8">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Active Category Info Bar -->
+            <div class="flex items-center justify-between text-xs text-gray-400 mb-6 pb-3 border-b border-soulBorder/60">
+                <span id="menu-count-label">Showing all items</span>
+                <span class="text-soulGold/90"><i class="fa-solid fa-indian-rupee-sign mr-1"></i>All prices in INR</span>
+            </div>
+
+            <!-- Menu Cards Grid -->
+            <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Rendered via JS -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="empty-state" class="hidden text-center py-16">
+                <div class="w-16 h-16 rounded-full bg-soulCard border border-soulBorder text-soulGold flex items-center justify-center text-2xl mx-auto mb-4">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <h3 id="empty-state-title" class="text-lg font-bold text-white mb-1">Menu is currently empty</h3>
+                <p id="empty-state-desc" class="text-sm text-gray-400">Add your delicious items via Settings &rarr; Admin Panel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cafe Story & Ambiance Highlights -->
+    <section id="about" class="py-20 border-t border-soulBorder bg-soulBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden border border-soulBorder neon-box aspect-[4/3]">
+                        <img src="" alt="The Tea Soul Cafe Ambiance" onerror="this.src='https://placehold.co/800x600/161616/FFC107?text=The+Tea+Soul+Cafe'" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-5 -right-3 sm:right-6 bg-soulCard border border-soulGold/50 px-6 py-4 rounded-2xl shadow-2xl">
+                        <p class="text-soulGold font-display font-black text-xl">14+ Categories</p>
+                        <p class="text-xs text-gray-400">Freshly brewed &amp; made to order</p>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="text-soulGold text-xs font-bold tracking-[0.2em] uppercase">Our Vibe</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-black text-white mt-2 mb-5">
+                        Where Every Cup Connects Two Souls
+                    </h2>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
+                        At <strong class="text-white">The Tea Soul Street Cafe</strong>, we believe great conversations start over a warm cup of tea or a plate of crispy street favorites. Designed as a cozy hangout spot, our menu blends traditional Malabar flavors like Sulaimani and Avil Milk with modern street delights including Bubble Tea, Loaded Fries, Momos, and Continental platters.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-2xl bg-soulCard border border-soulBorder">
+                            <i class="fa-solid fa-leaf text-soulGold text-xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Authentic Brews</h4>
+                            <p class="text-xs text-gray-400 mt-1">Handpicked tea leaves &amp; aromatic spices.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-soulCard border border-soulBorder">
+                            <i class="fa-solid fa-fire-burner text-soulGold text-xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Fresh Street Bites</h4>
+                            <p class="text-xs text-gray-400 mt-1">Hot momos, burgers &amp; rolls served fresh.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Opening Hours -->
+    <section id="contact" class="py-20 border-t border-soulBorder bg-[#0E0E0E]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <span class="text-soulGold text-xs font-bold tracking-[0.2em] uppercase">Drop By</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-black text-white mt-1">Location &amp; Hours</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Address -->
+                <div class="p-7 rounded-3xl bg-soulCard border border-soulBorder hover:border-soulGold/50 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-soulGold/10 text-soulGold flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Cafe Address</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Chungathara - Pookkottumanna Rd,<br>
+                        Chungathara, Kerala 679334
+                    </p>
+                </div>
+
+                <!-- Hours -->
+                <div class="p-7 rounded-3xl bg-soulCard border border-soulBorder hover:border-soulGold/50 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-soulGold/10 text-soulGold flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Opening Hours</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Mon – Sat: <span class="text-soulGold font-semibold">03:00 PM – 11:00 PM</span><br>
+                        Sunday: <span class="text-gray-300">Holiday / Special Hours</span>
+                    </p>
+                </div>
+
+                <!-- Direct Contact -->
+                <div class="p-7 rounded-3xl bg-soulCard border border-soulBorder hover:border-soulGold/50 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-soulGold/10 text-soulGold flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Get in Touch</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-3">
+                        Call or WhatsApp for quick queries:<br>
+                        <a href="tel:+919846625878" class="text-soulGold font-semibold hover:underline">+91 98466 25878</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-soulBorder py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-center sm:text-left">
+                <span class="font-display font-black italic text-soulGold tracking-wider">THE TEA SOUL STREET CAFE</span>
+                <p class="text-xs text-gray-500 mt-1">“Connecting with soulmate's” &bull; &copy; 2026 All Rights Reserved.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-soulCard border border-soulBorder flex items-center justify-center text-gray-400 hover:text-soulGold hover:border-soulGold transition-colors">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="WhatsApp" class="w-9 h-9 rounded-full bg-soulCard border border-soulBorder flex items-center justify-center text-gray-400 hover:text-soulGold hover:border-soulGold transition-colors">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <button onclick="openSettingsModal()" class="text-xs text-gray-500 hover:text-soulGold flex items-center gap-1.5 px-3 py-2 rounded-lg border border-soulBorder/70">
+                    <i class="fa-solid fa-gear"></i> Admin Settings
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- SETTINGS MODAL: ADMIN LOGIN & MENU MANAGEMENT DASHBOARD   -->
+    <!-- ========================================================= -->
+    <div id="settings-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto">
+        <div class="bg-soulCard border border-soulBorder w-full max-w-3xl rounded-3xl shadow-2xl overflow-hidden my-auto">
+            
+            <!-- Modal Top Bar -->
+            <div class="px-6 py-4 bg-black/60 border-b border-soulBorder flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-gear text-soulGold"></i>
+                    <h3 class="font-display font-bold text-white text-base sm:text-lg" id="modal-title">Cafe Settings &amp; Admin Login</h3>
+                </div>
+                <button onclick="closeSettingsModal()" class="w-8 h-8 rounded-full bg-soulBorder/60 text-gray-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- VIEW 1: ADMIN LOGIN FORM -->
+            <div id="admin-login-view" class="p-6 sm:p-8 max-w-md mx-auto">
+                <div class="text-center mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-soulGold/10 border border-soulGold/40 text-soulGold flex items-center justify-center text-2xl mx-auto mb-3">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white">Admin Access</h4>
+                    <p class="text-xs text-gray-400 mt-1">Login to add items, update prices, or manage menu stock.</p>
+                </div>
+
+                <form id="login-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1.5">User Name</label>
+                        <input type="text" id="admin-username" required placeholder="Enter username" class="w-full px-4 py-3 rounded-xl bg-soulBg border border-soulBorder text-white text-sm focus:outline-none focus:border-soulGold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1.5">Password</label>
+                        <input type="password" id="admin-password" required placeholder="Enter password" class="w-full px-4 py-3 rounded-xl bg-soulBg border border-soulBorder text-white text-sm focus:outline-none focus:border-soulGold">
+                    </div>
+
+                    <p id="login-error" class="hidden text-xs text-red-400 font-medium">
+                        <i class="fa-solid fa-circle-exclamation mr-1"></i> Invalid username or password!
+                    </p>
+
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-soulGold text-black font-bold text-sm hover:bg-amber-400 transition-all shadow-lg shadow-soulGold/20">
+                        Login to Admin Panel
+                    </button>
+                </form>
+            </div>
+
+            <!-- VIEW 2: ADMIN DASHBOARD (Logged In) -->
+            <div id="admin-dashboard-view" class="hidden p-6 max-h-[82vh] overflow-y-auto space-y-6">
+                
+                <!-- Top Action Strip -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-soulBorder">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-xs font-semibold border border-emerald-500/30">
+                            <i class="fa-solid fa-circle text-[8px] mr-1"></i> Admin Active
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="resetDefaultMenu()" class="px-3 py-1.5 rounded-lg bg-soulBg border border-soulBorder text-xs text-soulGold hover:border-soulGold transition-colors">
+                            <i class="fa-solid fa-rotate-left mr-1"></i> Reset Default Menu
+                        </button>
+                        <button onclick="clearAllMenuItems()" class="px-3 py-1.5 rounded-lg bg-soulBg border border-soulBorder text-xs text-gray-300 hover:border-red-500 hover:text-red-400 transition-colors">
+                            <i class="fa-solid fa-trash-can mr-1"></i> Clear All
+                        </button>
+                        <button onclick="handleAdminLogout()" class="px-3 py-1.5 rounded-lg bg-red-500/15 border border-red-500/30 text-xs text-red-400 hover:bg-red-500/25 transition-colors">
+                            <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Add / Edit Item Form -->
+                <div class="p-5 rounded-2xl bg-soulBg border border-soulBorder">
+                    <h4 id="form-section-title" class="text-sm font-bold text-soulGold uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle"></i> Add New Menu Item
+                    </h4>
+                    <form id="item-form" onsubmit="saveMenuItem(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="hidden" id="edit-item-id">
+                        
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Item Name *</label>
+                            <input type="text" id="item-name" required placeholder="e.g., Special Zafrani Tea" class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-white text-sm focus:outline-none focus:border-soulGold">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Category *</label>
+                            <select id="item-category" required class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-white text-sm focus:outline-none focus:border-soulGold">
+                                <!-- Populated dynamically with the 14 categories -->
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Price (₹) *</label>
+                            <input type="number" id="item-price" required min="1" placeholder="e.g., 45" class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-white text-sm focus:outline-none focus:border-soulGold">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Availability</label>
+                            <select id="item-available" class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-white text-sm focus:outline-none focus:border-soulGold">
+                                <option value="true">Available (In Stock)</option>
+                                <option value="false">Sold Out</option>
+                            </select>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs text-gray-400 mb-1">Short Description</label>
+                            <input type="text" id="item-desc" placeholder="Brief taste description..." class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-white text-sm focus:outline-none focus:border-soulGold">
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs text-gray-400 mb-1">Image URL (Optional — leave blank for default category photo)</label>
+                            <input type="url" id="item-image" placeholder="https://images.unsplash.com/..." class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-white text-sm focus:outline-none focus:border-soulGold">
+                        </div>
+
+                        <div class="sm:col-span-2 flex items-center gap-3 pt-1">
+                            <button type="submit" id="save-item-btn" class="px-5 py-2.5 rounded-xl bg-soulGold text-black font-bold text-xs sm:text-sm hover:bg-amber-400 transition-colors">
+                                <i class="fa-solid fa-check mr-1"></i> Save Item
+                            </button>
+                            <button type="button" id="cancel-edit-btn" onclick="resetItemForm()" class="hidden px-4 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-gray-300 text-xs sm:text-sm hover:text-white transition-colors">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Manage Existing Items List -->
+                <div class="p-5 rounded-2xl bg-soulBg border border-soulBorder space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <h4 class="text-sm font-bold text-soulGold uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-list-check"></i> Current Menu Items (<span id="admin-item-count">0</span>)
+                        </h4>
+                        <input type="text" id="admin-search" oninput="renderAdminItemList()" placeholder="Filter items..." class="px-3.5 py-2 rounded-xl bg-soulCard border border-soulBorder text-xs text-white focus:outline-none focus:border-soulGold">
+                    </div>
+                    <div id="admin-items-list" class="space-y-2.5 max-h-60 overflow-y-auto pr-1">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+
+                <!-- Change Admin Username & Password -->
+                <div class="p-5 rounded-2xl bg-soulBg border border-soulBorder space-y-4">
+                    <div>
+                        <h4 class="text-sm font-bold text-soulGold uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-key"></i> Admin Security (Change Username &amp; Password)
+                        </h4>
+                        <p class="text-xs text-gray-400 mt-1">Update your login credentials. Changes are saved automatically for future logins.</p>
+                    </div>
+                    <form onsubmit="updateAdminCredentials(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Current Password *</label>
+                            <input type="password" id="current-admin-pass" required placeholder="Enter current password" class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-xs text-white focus:outline-none focus:border-soulGold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">New Username *</label>
+                            <input type="text" id="new-admin-user" required minlength="3" placeholder="e.g., teasoul_admin" class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-xs text-white focus:outline-none focus:border-soulGold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">New Password *</label>
+                            <input type="password" id="new-admin-pass" required minlength="4" placeholder="Enter new password" class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-xs text-white focus:outline-none focus:border-soulGold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Confirm New Password *</label>
+                            <input type="password" id="confirm-admin-pass" required minlength="4" placeholder="Re-enter new password" class="w-full px-3.5 py-2.5 rounded-xl bg-soulCard border border-soulBorder text-xs text-white focus:outline-none focus:border-soulGold">
+                        </div>
+                        <div class="sm:col-span-2 flex items-center justify-between gap-3 pt-1">
+                            <span id="cred-error" class="text-xs text-red-400 hidden"></span>
+                            <button type="submit" class="ml-auto px-5 py-2.5 rounded-xl bg-soulGold text-black font-bold text-xs hover:bg-amber-400 transition-colors">
+                                <i class="fa-solid fa-shield-halved mr-1"></i> Save New Credentials
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // 1. CATEGORIES & DEFAULT MENU DATA
+        // ==========================================
+        const CATEGORIES = [
+            "Tea",
+            "Fresh Lime",
+            "Mojito",
+            "Fresh Juice",
+            "Milk Shake",
+            "Bubble Tea",
+            "Falooda",
+            "Avil Milk",
+            "Momos",
+            "Loaded Fries",
+            "Burger",
+            "Continental",
+            "Sandwich",
+            "Rolls"
+        ];
+
+        const CATEGORY_FALLBACK_IMAGES = {
+            "Tea": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+            "Fresh Lime": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
+            "Mojito": "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=600&q=80",
+            "Fresh Juice": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=600&q=80",
+            "Milk Shake": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80",
+            "Bubble Tea": "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=600&q=80",
+            "Falooda": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80",
+            "Avil Milk": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=600&q=80",
+            "Momos": "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80",
+            "Loaded Fries": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80",
+            "Burger": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
+            "Continental": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600&q=80",
+            "Sandwich": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80",
+            "Rolls": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80"
+        };
+
+        const DEFAULT_MENU = [
+            // 1. Tea
+            { id: 1, name: "Sulaimani", category: "Tea", price: 20, desc: "Traditional Malabar spiced black tea with a hint of lemon.", available: true, image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, name: "Dum Chai", category: "Tea", price: 25, desc: "Slow-brewed rich creamy milk tea with deep aroma.", available: true, image: "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?auto=format&fit=crop&w=600&q=80" },
+            { id: 3, name: "Masala Chai", category: "Tea", price: 30, desc: "Infused with crushed cardamom, ginger, clove & cinnamon.", available: true, image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" },
+            { id: 4, name: "Elachi Tea", category: "Tea", price: 25, desc: "Fragrant green cardamom milk tea brewed to perfection.", available: true, image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80" },
+            { id: 5, name: "Ginger Lemon Tea", category: "Tea", price: 30, desc: "Soothing fresh ginger infusion with zesty lemon drops.", available: true, image: "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?auto=format&fit=crop&w=600&q=80" },
+            { id: 6, name: "Zafrani Tea", category: "Tea", price: 45, desc: "Royal saffron-infused creamy tea topped with pistachio.", available: true, image: "https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?auto=format&fit=crop&w=600&q=80" },
+
+            // 2. Fresh Lime
+            { id: 7, name: "Classic Fresh Lime", category: "Fresh Lime", price: 30, desc: "Chilled freshly squeezed lime refresher.", available: true, image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" },
+            { id: 8, name: "Mint Lime", category: "Fresh Lime", price: 40, desc: "Crushed garden mint blended with tangy lime juice.", available: true, image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80" },
+            { id: 9, name: "Ginger Lime", category: "Fresh Lime", price: 40, desc: "Zesty lime juice with a refreshing spicy ginger kick.", available: true, image: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=600&q=80" },
+            { id: 10, name: "Blue Lime", category: "Fresh Lime", price: 50, desc: "Vibrant blue curacao flavored citrus lime cooler.", available: true, image: "https://images.unsplash.com/photo-1560512823-829485b8bf24?auto=format&fit=crop&w=600&q=80" },
+            { id: 11, name: "Grape Lime", category: "Fresh Lime", price: 50, desc: "Sweet purple grape fusion with tangy fresh lime.", available: true, image: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=600&q=80" },
+
+            // 3. Mojito
+            { id: 12, name: "Virgin Mint Mojito", category: "Mojito", price: 80, desc: "Sparkling soda, muddled mint leaves, lime wedges & ice.", available: true, image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=600&q=80" },
+            { id: 13, name: "Blue Lagoon", category: "Mojito", price: 90, desc: "Electric blue citrus fizz with fresh mint & lemon.", available: true, image: "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80" },
+            { id: 14, name: "Passion Fruit Mojito", category: "Mojito", price: 95, desc: "Tropical passion fruit pulp muddled with mint & fizz.", available: true, image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" },
+            { id: 15, name: "Green Apple Mojito", category: "Mojito", price: 90, desc: "Crisp tangy green apple sparkling refresher.", available: true, image: "https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=600&q=80" },
+            { id: 16, name: "Watermelon Mojito", category: "Mojito", price: 90, desc: "Juicy watermelon chunks muddled with mint & lime.", available: true, image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=600&q=80" },
+
+            // 4. Fresh Juice
+            { id: 17, name: "Watermelon Juice", category: "Fresh Juice", price: 60, desc: "100% pure cold-pressed chilled watermelon juice.", available: true, image: "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=600&q=80" },
+            { id: 18, name: "Pineapple Juice", category: "Fresh Juice", price: 70, desc: "Sweet & tangy freshly blended tropical pineapple.", available: true, image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=600&q=80" },
+            { id: 19, name: "Orange Juice", category: "Fresh Juice", price: 80, desc: "Freshly squeezed Valencia oranges packed with vitamin C.", available: true, image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&q=80" },
+            { id: 20, name: "Pomegranate Juice", category: "Fresh Juice", price: 100, desc: "Rich ruby-red fresh pomegranate juice.", available: true, image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80" },
+            { id: 21, name: "Mango Juice", category: "Fresh Juice", price: 80, desc: "Thick, luscious ripe mango nectar served chilled.", available: true, image: "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=600&q=80" },
+
+            // 5. Milk Shake
+            { id: 22, name: "Chocolate Shake", category: "Milk Shake", price: 90, desc: "Rich Belgian cocoa thick shake drizzled with chocolate syrup.", available: true, image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80" },
+            { id: 23, name: "Oreo Shake", category: "Milk Shake", price: 100, desc: "Creamy vanilla ice cream blended with crunchy Oreo cookies.", available: true, image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80" },
+            { id: 24, name: "Strawberry Shake", category: "Milk Shake", price: 90, desc: "Velvety pink strawberry milkshake topped with cream.", available: true, image: "https://images.unsplash.com/photo-1553177595-4de2bb0842b9?auto=format&fit=crop&w=600&q=80" },
+            { id: 25, name: "Vanilla Shake", category: "Milk Shake", price: 85, desc: "Classic Madagascar vanilla bean creamy milkshake.", available: true, image: "https://images.unsplash.com/photo-1568901839119-631418a3910d?auto=format&fit=crop&w=600&q=80" },
+            { id: 26, name: "KitKat Shake", category: "Milk Shake", price: 110, desc: "Crunchy wafer chocolate KitKat blended into thick shake.", available: true, image: "https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=600&q=80" },
+
+            // 6. Bubble Tea
+            { id: 27, name: "Classic Brown Sugar Boba", category: "Bubble Tea", price: 140, desc: "Caramelized brown sugar milk tea with chewy tapioca pearls.", available: true, image: "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=600&q=80" },
+            { id: 28, name: "Taro Milk Boba", category: "Bubble Tea", price: 150, desc: "Creamy pastel purple taro root tea with black boba pearls.", available: true, image: "https://images.unsplash.com/photo-1525803377221-4f6ccdaa5133?auto=format&fit=crop&w=600&q=80" },
+            { id: 29, name: "Matcha Boba", category: "Bubble Tea", price: 150, desc: "Japanese ceremonial matcha green tea latte with boba.", available: true, image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80" },
+            { id: 30, name: "Strawberry Popping Boba", category: "Bubble Tea", price: 140, desc: "Fruity strawberry iced tea with juicy popping boba.", available: true, image: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=600&q=80" },
+
+            // 7. Falooda
+            { id: 31, name: "Royal Falooda", category: "Falooda", price: 130, desc: "Layered rose milk, vermicelli, sabja seeds, jelly & ice cream.", available: true, image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" },
+            { id: 32, name: "Dry Fruit Falooda", category: "Falooda", price: 160, desc: "Loaded with roasted cashews, almonds, figs, dates & scoops.", available: true, image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=600&q=80" },
+            { id: 33, name: "Mango Falooda", category: "Falooda", price: 140, desc: "Alphonso mango pulp layered with falooda sev & mango scoop.", available: true, image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80" },
+            { id: 34, name: "Butterscotch Falooda", category: "Falooda", price: 140, desc: "Crunchy caramel praline butterscotch dessert jar.", available: true, image: "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80" },
+
+            // 8. Avil Milk
+            { id: 35, name: "Classic Malabar Avil Milk", category: "Avil Milk", price: 70, desc: "Roasted rice flakes, mashed Robusta banana, peanuts & chilled milk.", available: true, image: "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=600&q=80" },
+            { id: 36, name: "Special Dry Fruit Avil Milk", category: "Avil Milk", price: 100, desc: "Signature Malabar Avil Milk loaded with dates, nuts & ice cream.", available: true, image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80" },
+            { id: 37, name: "Chocolate Avil Milk", category: "Avil Milk", price: 90, desc: "Crunchy avil milk layered with rich chocolate sauce & choco chips.", available: true, image: "https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=600&q=80" },
+            { id: 38, name: "Boost Avil Milk", category: "Avil Milk", price: 85, desc: "Malabar street favorite topped generously with malted Boost.", available: true, image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80" },
+
+            // 9. Momos
+            { id: 39, name: "Steamed Veg Momos", category: "Momos", price: 80, desc: "Soft steamed dumplings stuffed with seasoned veggies & spicy chutney.", available: true, image: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80" },
+            { id: 40, name: "Fried Chicken Momos", category: "Momos", price: 100, desc: "Golden crispy fried juicy chicken momos with mayo & red dip.", available: true, image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80" },
+            { id: 41, name: "Peri Peri Momos", category: "Momos", price: 110, desc: "Crispy momos tossed in fiery African Peri Peri seasoning.", available: true, image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80" },
+            { id: 42, name: "Schezwan Cheese Momos", category: "Momos", price: 120, desc: "Pan-tossed in spicy Schezwan sauce & topped with melted cheese.", available: true, image: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80" },
+
+            // 10. Loaded Fries
+            { id: 43, name: "Classic Salted Fries", category: "Loaded Fries", price: 70, desc: "Crispy golden French fries seasoned with sea salt.", available: true, image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80" },
+            { id: 44, name: "Peri Peri Fries", category: "Loaded Fries", price: 90, desc: "Crispy fries dusted with zesty Peri Peri spice mix.", available: true, image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=600&q=80" },
+            { id: 45, name: "Cheesy Chicken Loaded Fries", category: "Loaded Fries", price: 140, desc: "Topped with spiced popcorn chicken, jalapenos & liquid cheddar.", available: true, image: "https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=600&q=80" },
+            { id: 46, name: "BBQ Chicken Fries", category: "Loaded Fries", price: 150, desc: "Smoky barbecue glazed chicken chunks over cheesy fries.", available: true, image: "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=600&q=80" },
+
+            // 11. Burger
+            { id: 47, name: "Classic Veg Burger", category: "Burger", price: 90, desc: "Crispy herb vegetable patty, fresh lettuce, tomato & creamy mayo.", available: true, image: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" },
+            { id: 48, name: "Crispy Chicken Zinger Burger", category: "Burger", price: 130, desc: "Crunchy fried chicken fillet, cheddar slice & signature burger sauce.", available: true, image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" },
+            { id: 49, name: "Double Cheese Chicken Burger", category: "Burger", price: 170, desc: "Double juicy patties layered with melted cheddar & caramelized onions.", available: true, image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" },
+            { id: 50, name: "Mexican Spicy Burger", category: "Burger", price: 140, desc: "Loaded with spicy salsa, jalapenos, nacho crunch & grilled patty.", available: true, image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=600&q=80" },
+
+            // 12. Continental
+            { id: 51, name: "Grilled Chicken Platter", category: "Continental", price: 220, desc: "Herb-marinated grilled chicken breast with mashed potatoes & sauteed veggies.", available: true, image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=600&q=80" },
+            { id: 52, name: "Creamy Alfredo White Sauce Pasta", category: "Continental", price: 180, desc: "Penne tossed in rich parmesan cream sauce, herbs & garlic bread.", available: true, image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600&q=80" },
+            { id: 53, name: "Arrabbiata Red Sauce Pasta", category: "Continental", price: 170, desc: "Tangy Italian tomato basil sauce with chili flakes & olives.", available: true, image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=600&q=80" },
+            { id: 54, name: "Fish & Chips", category: "Continental", price: 210, desc: "Golden batter-fried fish fillets served with fries & tartar sauce.", available: true, image: "https://images.unsplash.com/photo-1579208575657-c595a05383b7?auto=format&fit=crop&w=600&q=80" },
+
+            // 13. Sandwich
+            { id: 55, name: "Veg Club Sandwich", category: "Sandwich", price: 80, desc: "Triple-layered toasted bread with fresh veggies, cheese & mint chutney.", available: true, image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" },
+            { id: 56, name: "Grilled Chicken Cheese Sandwich", category: "Sandwich", price: 110, desc: "Shredded roasted chicken, melted mozzarella & black pepper mayo.", available: true, image: "https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=600&q=80" },
+            { id: 57, name: "Paneer Tikka Sandwich", category: "Sandwich", price: 100, desc: "Smoky tandoori paneer cubes grilled inside buttered bread.", available: true, image: "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80" },
+            { id: 58, name: "Egg & Mayo Sandwich", category: "Sandwich", price: 85, desc: "Creamy seasoned egg salad sandwich grilled golden.", available: true, image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80" },
+
+            // 14. Rolls
+            { id: 59, name: "Classic Chicken Shawarma Roll", category: "Rolls", price: 90, desc: "Juicy spit-roasted chicken wrapped in kuboos with garlic toum & pickles.", available: true, image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80" },
+            { id: 60, name: "Spicy Peri Peri Chicken Roll", category: "Rolls", price: 110, desc: "Fiery peri-peri chicken strips rolled in warm tortilla with jalapenos.", available: true, image: "https://images.unsplash.com/photo-1648437595587-e6a8b0cdf1f9?auto=format&fit=crop&w=600&q=80" },
+            { id: 61, name: "Paneer Kathi Roll", category: "Rolls", price: 100, desc: "Flaky paratha stuffed with spiced paneer tikka, onions & mint sauce.", available: true, image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" },
+            { id: 62, name: "Mexican Chicken Wrap", category: "Rolls", price: 120, desc: "Loaded with spiced chicken, salsa, cheese & crunchy nachos.", available: true, image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        // ==========================================
+        // 2. STATE & LOCALSTORAGE PERSISTENCE
+        // ==========================================
+        const STORAGE_MENU_KEY = 'tea_soul_menu_v3';
+        const STORAGE_USER_KEY = 'tea_soul_admin_user_v1';
+        const STORAGE_PASS_KEY = 'tea_soul_admin_pass_v1';
+        const STORAGE_AUTH_KEY = 'tea_soul_admin_logged_in_v1';
+
+        let menuItems = [];
+        let activeCategory = 'All';
+        let searchQuery = '';
+        let isAdminLoggedIn = sessionStorage.getItem(STORAGE_AUTH_KEY) === 'true';
+
+        function loadState() {
+            try {
+                const savedMenu = localStorage.getItem(STORAGE_MENU_KEY);
+                if (savedMenu) {
+                    menuItems = JSON.parse(savedMenu);
+                } else {
+                    menuItems = [...DEFAULT_MENU];
+                    localStorage.setItem(STORAGE_MENU_KEY, JSON.stringify(menuItems));
+                }
+            } catch (e) {
+                menuItems = [...DEFAULT_MENU];
+            }
+        }
+
+        function saveMenuToStorage() {
+            try {
+                localStorage.setItem(STORAGE_MENU_KEY, JSON.stringify(menuItems));
+            } catch (e) {
+                showToast('Could not save to browser storage', 'fa-triangle-exclamation');
+            }
+        }
+
+        function getAdminUsername() {
+            return localStorage.getItem(STORAGE_USER_KEY) || 'tea soul';
+        }
+
+        function getAdminPassword() {
+            return localStorage.getItem(STORAGE_PASS_KEY) || '5878';
+        }
+
+        // ==========================================
+        // 3. RENDER PUBLIC DIGITAL MENU
+        // ==========================================
+        function renderCategoryPills() {
+            const container = document.getElementById('category-pills');
+            const allCategories = ['All', ...CATEGORIES];
+
+            container.innerHTML = allCategories.map(cat => {
+                const isActive = activeCategory === cat;
+                const activeClasses = isActive
+                    ? 'bg-soulGold text-black font-bold shadow-lg shadow-soulGold/20 border-soulGold'
+                    : 'bg-soulCard text-gray-300 hover:text-soulGold border-soulBorder hover:border-soulGold/50 font-medium';
+                return `
+                    <button onclick="selectCategory('${cat}')" class="px-4 py-2 rounded-full border text-xs sm:text-sm whitespace-nowrap transition-all ${activeClasses}">
+                        ${cat}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectCategory(cat) {
+            activeCategory = cat;
+            renderCategoryPills();
+            renderMenuGrid();
+        }
+
+        function renderMenuGrid() {
+            const grid = document.getElementById('menu-grid');
+            const emptyState = document.getElementById('empty-state');
+            const emptyTitle = document.getElementById('empty-state-title');
+            const emptyDesc = document.getElementById('empty-state-desc');
+            const countLabel = document.getElementById('menu-count-label');
+
+            const filtered = menuItems.filter(item => {
+                const matchesCat = activeCategory === 'All' || item.category === activeCategory;
+                const q = searchQuery.toLowerCase().trim();
+                const matchesSearch = !q ||
+                    item.name.toLowerCase().includes(q) ||
+                    item.category.toLowerCase().includes(q) ||
+                    (item.desc && item.desc.toLowerCase().includes(q));
+                return matchesCat && matchesSearch;
+            });
+
+            countLabel.textContent = activeCategory === 'All'
+                ? `Showing ${filtered.length} items`
+                : `Showing ${filtered.length} items in ${activeCategory}`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                if (menuItems.length === 0) {
+                    emptyTitle.textContent = 'No items added yet';
+                    emptyDesc.innerHTML = 'Open <span class="text-soulGold font-semibold">Settings</span> to log in and add your menu items.';
+                } else {
+                    emptyTitle.textContent = 'No matching items found';
+                    emptyDesc.textContent = 'Try searching for another dish or switch categories.';
+                }
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(item => {
+                const fallbackImg = CATEGORY_FALLBACK_IMAGES[item.category] || 'https://placehold.co/600x400/161616/FFC107?text=The+Tea+Soul';
+                const imgSrc = item.image && item.image.trim() ? item.image : fallbackImg;
+                const soldOutBadge = !item.available
+                    ? `<span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider">Sold Out</span>`
+                    : '';
+                const cardOpacity = !item.available ? 'opacity-65' : '';
+
+                return `
+                    <div class="group bg-soulCard rounded-2xl border border-soulBorder hover:border-soulGold/60 overflow-hidden transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 neon-box ${cardOpacity}">
+                        <div>
+                            <!-- Image Container -->
+                            <div class="relative h-44 w-full bg-black overflow-hidden">
+                                <img src="${imgSrc}" alt="${item.name}" onerror="this.src='${fallbackImg}'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-soulCard via-transparent to-black/30"></div>
+                                ${soldOutBadge}
+                                <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/75 backdrop-blur-sm border border-soulBorder text-[11px] font-semibold text-soulGold">
+                                    ${item.category}
+                                </span>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="p-5">
+                                <div class="flex items-start justify-between gap-3 mb-2">
+                                    <h3 class="text-base font-bold text-white group-hover:text-soulGold transition-colors leading-snug">
+                                        ${item.name}
+                                    </h3>
+                                    <span class="shrink-0 px-2.5 py-1 rounded-lg bg-soulGold/15 border border-soulGold/40 text-soulGold font-display font-extrabold text-sm">
+                                        ₹${item.price}
+                                    </span>
+                                </div>
+                                <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">
+                                    ${item.desc || 'Freshly prepared at The Tea Soul Street Cafe.'}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Status Bar -->
+                        <div class="px-5 py-3 border-t border-soulBorder/60 flex items-center justify-between text-[11px]">
+                            <span class="${item.available ? 'text-emerald-400' : 'text-red-400'} font-medium flex items-center gap-1.5">
+                                <i class="fa-solid ${item.available ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
+                                ${item.available ? 'Available Now' : 'Currently Unavailable'}
+                            </span>
+                            ${isAdminLoggedIn ? `
+                                <button onclick="quickEditFromCard(${item.id})" class="text-soulGold hover:underline font-semibold">
+                                    <i class="fa-solid fa-pen-to-square mr-1"></i>Edit
+                                </button>
+                            ` : `
+                                <span class="text-gray-500">The Tea Soul</span>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ==========================================
+        // 4. SETTINGS & ADMIN LOGIN LOGIC
+        // ==========================================
+        function openSettingsModal() {
+            const modal = document.getElementById('settings-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            updateAdminModalView();
+        }
+
+        function closeSettingsModal() {
+            const modal = document.getElementById('settings-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById('login-error').classList.add('hidden');
+        }
+
+        function updateAdminModalView() {
+            const loginView = document.getElementById('admin-login-view');
+            const dashboardView = document.getElementById('admin-dashboard-view');
+            const modalTitle = document.getElementById('modal-title');
+            const badgeText = document.getElementById('admin-badge-text');
+
+            if (isAdminLoggedIn) {
+                loginView.classList.add('hidden');
+                dashboardView.classList.remove('hidden');
+                modalTitle.textContent = 'Admin Menu Manager';
+                badgeText.textContent = 'Admin Panel';
+                document.getElementById('new-admin-user').value = getAdminUsername();
+                populateCategorySelect();
+                renderAdminItemList();
+            } else {
+                loginView.classList.remove('hidden');
+                dashboardView.classList.add('hidden');
+                modalTitle.textContent = 'Cafe Settings & Admin Login';
+                badgeText.textContent = 'Settings';
+            }
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('admin-username').value.trim();
+            const pass = document.getElementById('admin-password').value;
+            const errorEl = document.getElementById('login-error');
+
+            if (user === getAdminUsername() && pass === getAdminPassword()) {
+                isAdminLoggedIn = true;
+                sessionStorage.setItem(STORAGE_AUTH_KEY, 'true');
+                errorEl.classList.add('hidden');
+                document.getElementById('login-form').reset();
+                updateAdminModalView();
+                renderMenuGrid();
+                showToast(`Welcome back, ${user}!`);
+            } else {
+                errorEl.classList.remove('hidden');
+            }
+        }
+
+        function handleAdminLogout() {
+            isAdminLoggedIn = false;
+            sessionStorage.removeItem(STORAGE_AUTH_KEY);
+            updateAdminModalView();
+            renderMenuGrid();
+            showToast('Logged out of Admin Panel', 'fa-right-from-bracket');
+        }
+
+        function updateAdminCredentials(e) {
+            e.preventDefault();
+            const currentPass = document.getElementById('current-admin-pass').value;
+            const newUser = document.getElementById('new-admin-user').value.trim();
+            const newPass = document.getElementById('new-admin-pass').value.trim();
+            const confirmPass = document.getElementById('confirm-admin-pass').value.trim();
+            const errorEl = document.getElementById('cred-error');
+
+            if (currentPass !== getAdminPassword()) {
+                errorEl.textContent = 'Current password is incorrect!';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            if (newUser.length < 3) {
+                errorEl.textContent = 'Username must be at least 3 characters.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            if (newPass.length < 4) {
+                errorEl.textContent = 'New password must be at least 4 characters.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            if (newPass !== confirmPass) {
+                errorEl.textContent = 'New password and confirm password do not match!';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            errorEl.classList.add('hidden');
+            localStorage.setItem(STORAGE_USER_KEY, newUser);
+            localStorage.setItem(STORAGE_PASS_KEY, newPass);
+
+            document.getElementById('current-admin-pass').value = '';
+            document.getElementById('new-admin-pass').value = '';
+            document.getElementById('confirm-admin-pass').value = '';
+
+            showToast(`Updated! New Username: "${newUser}"`);
+        }
+
+        // ==========================================
+        // 5. ADMIN CRUD (ADD, EDIT, DELETE, RESET)
+        // ==========================================
+        function populateCategorySelect() {
+            const select = document.getElementById('item-category');
+            select.innerHTML = CATEGORIES.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+        }
+
+        function saveMenuItem(e) {
+            e.preventDefault();
+            const editId = document.getElementById('edit-item-id').value;
+            const name = document.getElementById('item-name').value.trim();
+            const category = document.getElementById('item-category').value;
+            const price = Number(document.getElementById('item-price').value);
+            const available = document.getElementById('item-available').value === 'true';
+            const desc = document.getElementById('item-desc').value.trim();
+            const image = document.getElementById('item-image').value.trim();
+
+            if (!name || !price) return;
+
+            if (editId) {
+                // Update existing
+                const idx = menuItems.findIndex(i => i.id === Number(editId));
+                if (idx !== -1) {
+                    menuItems[idx] = { ...menuItems[idx], name, category, price, available, desc, image };
+                    showToast(`Updated "${name}" (₹${price})`);
+                }
+            } else {
+                // Add new item
+                const newId = menuItems.length > 0 ? Math.max(...menuItems.map(i => i.id)) + 1 : 1;
+                menuItems.unshift({ id: newId, name, category, price, available, desc, image });
+                showToast(`Added "${name}" to ${category}!`);
+            }
+
+            saveMenuToStorage();
+            resetItemForm();
+            renderAdminItemList();
+            renderMenuGrid();
+        }
+
+        function editMenuItem(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+
+            document.getElementById('edit-item-id').value = item.id;
+            document.getElementById('item-name').value = item.name;
+            document.getElementById('item-category').value = item.category;
+            document.getElementById('item-price').value = item.price;
+            document.getElementById('item-available').value = String(item.available);
+            document.getElementById('item-desc').value = item.desc || '';
+            document.getElementById('item-image').value = item.image || '';
+
+            document.getElementById('form-section-title').innerHTML = `<i class="fa-solid fa-pen-to-square"></i> Edit Item: ${item.name}`;
+            document.getElementById('save-item-btn').innerHTML = `<i class="fa-solid fa-check mr-1"></i> Update Item`;
+            document.getElementById('cancel-edit-btn').classList.remove('hidden');
+
+            // Scroll modal to top smoothly
+            document.getElementById('admin-dashboard-view').scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function quickEditFromCard(id) {
+            openSettingsModal();
+            editMenuItem(id);
+        }
+
+        function resetItemForm() {
+            document.getElementById('item-form').reset();
+            document.getElementById('edit-item-id').value = '';
+            document.getElementById('form-section-title').innerHTML = `<i class="fa-solid fa-plus-circle"></i> Add New Menu Item`;
+            document.getElementById('save-item-btn').innerHTML = `<i class="fa-solid fa-check mr-1"></i> Save Item`;
+            document.getElementById('cancel-edit-btn').classList.add('hidden');
+        }
+
+        function toggleItemStock(id) {
+            const idx = menuItems.findIndex(i => i.id === id);
+            if (idx !== -1) {
+                menuItems[idx].available = !menuItems[idx].available;
+                saveMenuToStorage();
+                renderAdminItemList();
+                renderMenuGrid();
+                showToast(`${menuItems[idx].name}: ${menuItems[idx].available ? 'In Stock' : 'Marked Sold Out'}`);
+            }
+        }
+
+        function deleteMenuItem(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+            menuItems = menuItems.filter(i => i.id !== id);
+            saveMenuToStorage();
+            renderAdminItemList();
+            renderMenuGrid();
+            showToast(`Removed "${item.name}"`, 'fa-trash');
+        }
+
+        function resetDefaultMenu() {
+            menuItems = [...DEFAULT_MENU];
+            saveMenuToStorage();
+            resetItemForm();
+            renderAdminItemList();
+            renderMenuGrid();
+            showToast('Default 62 menu items restored!');
+        }
+
+        function clearAllMenuItems() {
+            menuItems = [];
+            saveMenuToStorage();
+            resetItemForm();
+            renderAdminItemList();
+            renderMenuGrid();
+            showToast('All menu items cleared!', 'fa-trash-can');
+        }
+
+        function renderAdminItemList() {
+            const listEl = document.getElementById('admin-items-list');
+            const countEl = document.getElementById('admin-item-count');
+            const filterText = (document.getElementById('admin-search').value || '').toLowerCase().trim();
+
+            if (countEl) countEl.textContent = menuItems.length;
+
+            const filtered = menuItems.filter(item =>
+                !filterText ||
+                item.name.toLowerCase().includes(filterText) ||
+                item.category.toLowerCase().includes(filterText)
+            );
+
+            if (filtered.length === 0) {
+                listEl.innerHTML = `<p class="text-xs text-gray-500 text-center py-6">No items in the menu yet. Use the form above to add your first item!</p>`;
+                return;
+            }
+
+            listEl.innerHTML = filtered.map(item => `
+                <div class="p-3 rounded-xl bg-soulBg border border-soulBorder flex items-center justify-between gap-3">
+                    <div class="min-w-0">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-bold text-white truncate">${item.name}</span>
+                            <span class="text-xs font-extrabold text-soulGold">₹${item.price}</span>
+                        </div>
+                        <span class="text-[11px] text-gray-400">${item.category} &bull; ${item.available ? '<span class="text-emerald-400">Available</span>' : '<span class="text-red-400">Sold Out</span>'}</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        <button onclick="toggleItemStock(${item.id})" title="Toggle Availability" class="p-2 rounded-lg bg-soulCard border border-soulBorder text-xs ${item.available ? 'text-emerald-400' : 'text-gray-500'} hover:border-soulGold">
+                            <i class="fa-solid fa-power-off"></i>
+                        </button>
+                        <button onclick="editMenuItem(${item.id})" title="Edit Name/Price" class="p-2 rounded-lg bg-soulCard border border-soulBorder text-xs text-soulGold hover:bg-soulGold hover:text-black transition-colors">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <button onclick="deleteMenuItem(${item.id})" title="Delete Item" class="p-2 rounded-lg bg-soulCard border border-soulBorder text-xs text-red-400 hover:bg-red-500/20">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==========================================
+        // 6. UTILITIES & INITIALIZATION
+        // ==========================================
+        let toastTimer;
+        function showToast(message, iconClass = 'fa-check') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').textContent = message;
+            document.getElementById('toast-icon').className = `fa-solid ${iconClass}`;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        }
+
+        // Event Listeners
+        document.getElementById('menu-search').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderMenuGrid();
+        });
+
+        document.getElementById('mobile-nav-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-nav').classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-nav').classList.add('hidden');
+            });
+        });
+
+        // Close modal on outside click
+        document.getElementById('settings-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'settings-modal') closeSettingsModal();
+        });
+
+        // Boot App
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            renderCategoryPills();
+            renderMenuGrid();
+            if (isAdminLoggedIn) {
+                document.getElementById('admin-badge-text').textContent = 'Admin Panel';
+            }
+        });
+    </script>
+</body>
+</html>
